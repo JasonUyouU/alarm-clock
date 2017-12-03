@@ -4,36 +4,39 @@ function workingClock() {
   var minute = today.getMinutes();
   var second = today.getSeconds();
   var amPm = "AM";
-
+  //Converting military time into regular time
   if (hour > 12) {
     hour = hour - 12;
     amPm = "PM";
   }
+  //adding zeroes when minute and second are single digits
   if (minute < 10) {
     minute = "0" + minute
   }
   if (second < 10) {
     second = "0" + second
   }
+  //output the current time into the 'display' div
   document.getElementById('display').innerHTML = "<h1>" + hour + " : " + minute + " : " + second + " " + amPm + "</h1>";
+  //refresh the time every second
   setTimeout(function(){
     workingClock()
   }, 1000)
-
-  if (setHour == hour && setMinute == minute && setSecond == second) {
-    alert("wake up")
+  //alarm goes off when all of the below conditions are met
+  if (setHour == hour && setMinute == minute && setSecond == second && amPm == setAmpm) {
+    var messageH1 = document.createElement('h1')
+    var message = document.createTextNode('Wake Up!')
+    messageH1.appendChild(message)
+    document.getElementById('alarmMessage').appendChild(messageH1)
   }
 }
-
+//event listener to initiate the working clock
 document.getElementById('display').addEventListener('onload', workingClock(), false);
-
-var tod = new Date();
-var hor = tod.getHours();
-var min = tod.getMinutes();
-var sec = tod.getSeconds();
-var setHour, setMinute, setSecond
+//setting the alarm and storing into global variables for comparison
+var setHour, setMinute, setSecond, setAmpm
 function alarmSet() {
   setHour = document.getElementById('alarmHour').value;
   setMinute = document.getElementById('alarmMinute').value;
   setSecond = document.getElementById('alarmSecond').value;
+  setAmpm = document.getElementById('alarmAmpm').value;
 }

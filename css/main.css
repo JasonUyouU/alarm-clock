@@ -1,0 +1,11 @@
+#clock {
+  width: 40%;
+  margin: 20px auto;
+  text-align: center;
+  border: 3px solid black;
+  border-radius: 20px;
+}
+
+#alarm {
+  margin-bottom: 40px;
+}
