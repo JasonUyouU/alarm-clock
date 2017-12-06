@@ -1,11 +1,65 @@
+@font-face {
+  font-family: 'Alarmclock';
+  src: url('alarm clock.ttf')
+}
 #clock {
-  width: 40%;
+  width: 600px;
   margin: 20px auto;
+  padding: 15px;
   text-align: center;
   border: 3px solid black;
   border-radius: 20px;
+  background-color: #1A1D22;
+  color: #24d05d;
+}
+#display {
+  width: 80%;
+  margin: 10px auto;
+  border: 2px solid black;
+  color: #24d05d;
+  font-family: 'Alarmclock';
+  background-color: #000;
 }
 
 #alarm {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+.form-control {
+  width: 15%;
+  margin: 10px auto;
+  display: inline-block;
+  text-align: center;
+}
+button {
+  width: 200px;
+  height: 40px;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+}
+button:focus {
+  outline: none;
+}
+#setTime {
+  margin-right: 35px;
+  background-color: #28a745;
+}
+#setTime:hover {
+  background-color: #00FF01;
+}
+#alarmOff {
+  margin-left: 35px;
+  background-color: #dc3545;
+}
+#alarmOff:hover {
+  background-color: #fb0102;
+}
+.selected {
+  background-color: #00FF01 !important;
+}
+#alarmMessage {
+  text-align: center;
+  font-family: 'Alarmclock';
 }

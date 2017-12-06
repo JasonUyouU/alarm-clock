@@ -8,6 +8,8 @@ function workingClock() {
   if (hour > 12) {
     hour = hour - 12;
     amPm = "PM";
+  } else if (hour == 12) {
+    amPm = "PM";
   }
   //adding zeroes when minute and second are single digits
   if (minute < 10) {
@@ -25,9 +27,12 @@ function workingClock() {
   //alarm goes off when all of the below conditions are met
   if (setHour == hour && setMinute == minute && setSecond == second && amPm == setAmpm) {
     var messageH1 = document.createElement('h1')
+    messageH1.className = 'message';
     var message = document.createTextNode('Wake Up!')
     messageH1.appendChild(message)
     document.getElementById('alarmMessage').appendChild(messageH1)
+    document.getElementById('sound').loop = true
+    document.getElementById('sound').play()
   }
 }
 //event listener to initiate the working clock
@@ -39,4 +44,13 @@ function alarmSet() {
   setMinute = document.getElementById('alarmMinute').value;
   setSecond = document.getElementById('alarmSecond').value;
   setAmpm = document.getElementById('alarmAmpm').value;
+  document.getElementById('setTime').className = "selected";
 }
+$('#alarmOff').click(function(){
+  $('#setTime').removeClass("selected");
+  $('.message').remove();
+  $('#sound').each(function() {
+    this.pause();
+    this.currentTime = 0;
+  })
+})
