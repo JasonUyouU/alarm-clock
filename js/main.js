@@ -26,11 +26,7 @@ function workingClock() {
   }, 1000)
   //alarm goes off when all of the below conditions are met
   if (setHour == hour && setMinute == minute && setSecond == second && amPm == setAmpm) {
-    var messageH1 = document.createElement('h1')
-    messageH1.className = 'message';
-    var message = document.createTextNode('Wake Up!')
-    messageH1.appendChild(message)
-    document.getElementById('alarmMessage').appendChild(messageH1)
+    $("#clock").addClass("animation");
     document.getElementById('sound').loop = true
     document.getElementById('sound').play()
   }
@@ -48,7 +44,7 @@ function alarmSet() {
 }
 $('#alarmOff').click(function(){
   $('#setTime').removeClass("selected");
-  $('.message').remove();
+  $("#clock").removeClass("animation");
   $('#sound').each(function() {
     this.pause();
     this.currentTime = 0;
