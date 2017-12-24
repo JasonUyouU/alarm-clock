@@ -10,6 +10,8 @@ function workingClock() {
     amPm = "PM";
   } else if (hour == 12) {
     amPm = "PM";
+  } else if (hour == 0) {
+    hour = 12;
   }
   //adding zeroes when minute and second are single digits
   if (minute < 10) {

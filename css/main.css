@@ -3,7 +3,7 @@
   src: url('alarm clock.ttf')
 }
 body {
-  background: url("background.jpg") no-repeat center;
+  background-image: url("background.jpg");
   background-size: cover;
 }
 #clock {
