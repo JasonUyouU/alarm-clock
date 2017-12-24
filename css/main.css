@@ -4,12 +4,13 @@
 }
 body {
   background-image: url("background.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
 }
 #clock {
   width: 600px;
   margin: 0 auto;
-  margin-top: 400px;
+  margin-top: 370px;
   padding: 15px;
   text-align: center;
   border: 3px solid black;
